@@ -11,12 +11,12 @@ public class vehicle {
     double positionY;
 
 
-    public void newVehicle (String serialNumber, int noPersons){
+    public vehicle (String serialNumber, int noPersons){
         this.serialNumber = serialNumber;
         this.noPersons = noPersons;
     }
-    public void newVehicle (String serialNumber, int noPersons, String name){
-        this.newVehicle (serialNumber,noPersons);
+    public vehicle (String serialNumber, int noPersons, String name){
+        this (serialNumber,noPersons);
         this.name = name;
     }
 
