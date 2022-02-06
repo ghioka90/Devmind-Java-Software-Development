@@ -34,7 +34,7 @@ public class OnRoad extends vehicle{
     }
     @Override
     void printlnfo(){
-        super (serialNumber, noPersons, name);
+//        super (serialNumber, noPersons, name);
         System.out.println("Vehicle properties:\n" +
                 "\t\t- serial number:" + serialNumber +"\n" +
                 "\t\t- capacity: " + noPersons + " persons\n" +
