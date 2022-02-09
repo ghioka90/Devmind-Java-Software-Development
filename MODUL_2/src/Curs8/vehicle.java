@@ -20,6 +20,7 @@ public class vehicle {
         this.name = name;
     }
 
+
     public String getSerialNumber() {
         return serialNumber;
     }

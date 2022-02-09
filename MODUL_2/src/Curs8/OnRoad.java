@@ -18,27 +18,28 @@ public class OnRoad extends vehicle{
         this(serialNumber, noPersons, name, noWheels);
         this.noDoors = noDoors;
     }
+
+
     @Override
     public boolean goTo(double positionX, double positionY){
-
-
-        System.out.println("Driving the vehicle on road to coordinates: [" + positionX + ", " + positionY + "]");
-        super.goTo(positionX,positionY);
+        System.out.println("Driving vehicle " + name + " on road to coordinates: [" + positionX + ", " + positionY + "]");
+//        super.goTo(positionX,positionY);
         return true;
 
     }
     @Override
     public boolean addFuel( double fuel){
-        System.out.println("Error: unknown type of vehicle…");
-        return false;
+        System.out.println("Adding " + fuel + " l of fuel to vehicle " + name);
+        return true;
     }
+
+
     @Override
     void printlnfo(){
-//        super (serialNumber, noPersons, name);
-        System.out.println("Vehicle properties:\n" +
-                "\t\t- serial number:" + serialNumber +"\n" +
-                "\t\t- capacity: " + noPersons + " persons\n" +
-                "\t\t- name: " + name);
+        super.printlnfo();
+        System.out.println("Vehicle " + name + " properties:\n" +
+                "\t\t- number of wheels: " + noWheels +"\n" +
+                "\t\t- number of dors " + noDoors + " persons\n");
     }
 
 
