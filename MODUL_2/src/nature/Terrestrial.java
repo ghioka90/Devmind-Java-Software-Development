@@ -32,6 +32,10 @@ public class Terrestrial extends Animal {
         super.move(distance);
     }
 
+    public void saySomething() {
+        System.out.println("Unknown sound for non-specific terrestrial animal...");
+    }
+
 
     public static void main(String[] args) {
     }
