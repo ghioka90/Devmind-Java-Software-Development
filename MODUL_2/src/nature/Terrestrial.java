@@ -15,6 +15,10 @@ public class Terrestrial extends Animal {
         this.eyes = eyes;
     }
 
+    public Terrestrial() {
+        super();
+    }
+
     public void fight(){
         System.out.println("The terrestrial animal in now fighting!");
     }
@@ -35,6 +39,11 @@ public class Terrestrial extends Animal {
     public void saySomething() {
         System.out.println("Unknown sound for non-specific terrestrial animal...");
     }
+
+    public void camouflage(){
+        System.out.println("Unknown sound for non-specific terrestrial animal...");
+    }
+
 
 
     public static void main(String[] args) {

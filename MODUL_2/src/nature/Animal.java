@@ -15,6 +15,10 @@ public class Animal {
         this.species = species;
     }
 
+    public Animal() {
+
+    }
+
     //The class has 3 methods:
     public void eat(int unitsOfFood) {
         System.out.println("The animal eats " + unitsOfFood + " units of food.");
@@ -33,6 +37,8 @@ public class Animal {
     public final void printSpecies() {
         System.out.println("The scientific species is: " + this.species);
     }
+
+
     
     public static void main(String[] args) {
     }
