@@ -21,7 +21,7 @@ public class vehicle {
     }
 
 
-    public String getSerialNumber() {
+    public final String getSerialNumber() {
         return serialNumber;
     }
 

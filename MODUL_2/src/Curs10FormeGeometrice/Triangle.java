@@ -1,4 +1,6 @@
-package FormeGeometrice;
+package Curs10FormeGeometrice;
+
+import java.util.Objects;
 
 public class Triangle extends Shape{
     public int base;
@@ -28,7 +30,34 @@ public class Triangle extends Shape{
         return "Triangle: height is: " + this.height + ", base is: " + this.base + ", made of " + material + ", contains the text: \"" + text +"\".";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
+        if (obj == null) {
+            return false;
+        }
+
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Triangle triangleObj = (Triangle) obj;
+        if (super.equals(triangleObj) &&
+                this.base == triangleObj.base &&
+                this.height == triangleObj.height) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), base, height);
+    }
 
     public static void main(String[] args) {
     }

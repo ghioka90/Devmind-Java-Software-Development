@@ -16,10 +16,12 @@ public class Main {
         car1.addFuel(30);
         car1.printlnfo();
         System.out.println();
+
         car2.goTo(10.5,40.9);
         car2.addFuel(40);
         car2.printlnfo();
         System.out.println();
+
 
         ship1.goTo(200.45,700.50);
         ship1.addFuel(200.5);
@@ -30,6 +32,7 @@ public class Main {
         ship2.addFuel(284.5);
         ship2.printlnfo();
         System.out.println();
+
 
         plane1.goTo(8745.7,2847.4);
         plane1.addFuel(1000);

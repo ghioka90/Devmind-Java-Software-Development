@@ -1,4 +1,6 @@
-package FormeGeometrice;
+package Curs10FormeGeometrice;
+
+import java.util.Objects;
 
 public class Rectangle extends Shape {
     public int width;
@@ -29,6 +31,35 @@ public class Rectangle extends Shape {
     @Override
     public double getSize (){
         return this.height*this.width;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null) {
+            return false;
+        }
+
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Rectangle rectangleObj = (Rectangle) obj;
+        if (super.equals(rectangleObj) &&
+            this.width == rectangleObj.width &&
+            this.height == rectangleObj.height) {
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), width, height);
     }
 
     public static void main(String[] args) {

@@ -30,7 +30,7 @@ public class main {
 
         intArrayList1.remove(225);
         intArrayList1.remove(22);
-        intArrayList1.removeElementAtIndex(5);
+        intArrayList1.removeElementAtIndex(0);
 
         intArrayList1.printArray();
         System.out.println(intArrayList1.size());

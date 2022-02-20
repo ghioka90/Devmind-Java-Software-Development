@@ -1,4 +1,6 @@
-package FormeGeometrice;
+package Curs10FormeGeometrice;
+
+import java.util.Objects;
 
 public class Shape {
     public String text;
@@ -19,6 +21,7 @@ public class Shape {
     public String toString(){
         return "made of " + material + ", contains the text: \"" + text +"\".";
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -41,6 +44,10 @@ public class Shape {
         return false;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(text, material);
+    }
 
     public static void main(String[] args) {
     }
