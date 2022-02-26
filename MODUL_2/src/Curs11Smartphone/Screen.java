@@ -3,15 +3,14 @@ package Curs11Smartphone;
 import java.util.ArrayList;
 
 public class Screen {
-
-    private ArrayList<Pixel> pixels = new ArrayList<Pixel>();
-
     private Dimensions theDimensions;
+    private ArrayList<Pixel> pixels;
 
-    public Screen(){}
+//    public Screen(){}
 
     public Screen (int noPixels, int lenght, int width, int depth ){
         this.pixels = new ArrayList<Pixel>(noPixels);
+
         for (int i = 0; i < noPixels; i++){
             this.pixels.add(new Pixel());
         }
@@ -27,6 +26,12 @@ public class Screen {
             this.pixels.get(i).setPixel(color);
         }
     }
+    @Override
+    public String toString(){
+        return "\n\t with dimensions: " + theDimensions +
+                "\n\t and pixels: " + pixels;
+    }
+
 
     public static void main(String[] args) {
     }
