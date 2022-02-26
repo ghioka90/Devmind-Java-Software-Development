@@ -6,10 +6,22 @@ public class Smartphone {
   private Speaker theSpeaker;
   private Microphone theMicrophone;
 
+  private boolean power = false;
+
   // Aggregation:
   private Cover aCover;
   private ScreenProtector aScreenProtector;
 
+  public Smartphone() {
+    this.theScreen = new Screen(16,4,4,0);
+    this.theSpeaker = new Speaker(100);
+    this.theMicrophone = new Microphone(100);
+  }
+
+  public Smartphone(int spkVolume, int micVolume) {
+    this.theSpeaker.crtVolume = spkVolume;
+    this.theMicrophone.crtVolume = micVolume;
+  }
   public Smartphone(Screen theScreen, Case theCase,
                     Speaker theSpeaker, Microphone theMicrophone) {
     this.theScreen = theScreen;
@@ -17,6 +29,54 @@ public class Smartphone {
     this.theSpeaker = theSpeaker;
     this.theMicrophone = theMicrophone;
   }
+
+  public void pressPowerButton(){
+    if (this.power == true){
+      System.out.println("Good bye!");
+      this.power = false;
+    }else{
+      System.out.println("Welcome to Android!");
+      this.power = true;
+    }
+  }
+
+
+  public void pressVolumeUp(){
+    this.theCase.pressVolumeUp();
+    this.theSpeaker.increaseVolume();
+  }
+
+  public void pressVolumeDown(){
+    this.theCase.pressVolumeDown();
+    this.theSpeaker.decreaseVolume();
+  }
+
+
+  public void setPixel(int index, String color){
+    this.theScreen.setPixels(index, color);
+  }
+
+  public void colorScreen(String color){
+    this.theScreen.colorScreen(color);
+  }
+
+  public void increaseMicrophoneVolume(){
+    this.theMicrophone.increaseVolume();
+  }
+
+  public void decreaseMicrophoneVolume(){
+    this.theMicrophone.decreaseVolume();
+  }
+
+  public void muteMicrophone(){
+    this.theMicrophone.muteMicrophone();
+  }
+
+  public void setSilenceMode(){
+    this.theSpeaker.setSilenceMode();
+
+  }
+
 
 //  public Smartphone(int pixelsNo, int width, int length, int depth, int speakerMaxVol,
 //                    int speakerCrtVol, int microMaxVol, int microCrtVol) {
@@ -34,6 +94,7 @@ public class Smartphone {
     this.aCover = aCover;
     return true;
   }
+
 
   public Cover removeCover() {
     Cover referenceToCover = this.aCover;

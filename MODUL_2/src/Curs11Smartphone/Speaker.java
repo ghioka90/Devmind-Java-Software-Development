@@ -3,6 +3,8 @@ package Curs11Smartphone;
 public class Speaker {
     int maxVolume, crtVolume;
 
+    public Speaker(){}
+
     public Speaker(int maxVolume, int crtVolume) {
         this.maxVolume = maxVolume;
         this.crtVolume = crtVolume;
@@ -14,8 +16,8 @@ public class Speaker {
     }
 
     public boolean increaseVolume(){
-        if (crtVolume < maxVolume){
-            crtVolume++;
+        if (this.crtVolume < maxVolume){
+            this.crtVolume++;
             return true;
         }else{
             return false;
@@ -23,8 +25,17 @@ public class Speaker {
     }
 
     public boolean decreaseVolume(){
-        if (crtVolume < 0){
-            crtVolume--;
+        if (this.crtVolume < 0){
+            this.crtVolume--;
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean setSilenceMode(){
+        if (this.crtVolume > 0){
+            this.crtVolume = 0;
             return true;
         }else{
             return false;
