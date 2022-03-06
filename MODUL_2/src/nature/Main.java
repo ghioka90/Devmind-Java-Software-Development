@@ -37,7 +37,8 @@ public class Main {
         Tiger tiger = new Tiger(true, 40, 70, "Siberian tiger", 4, 2);
         Tiger tiger2 = new Tiger(true, 40, 70, "Bengal tiger", 4, 2);
         Rhino rhino = new Rhino(false, 80, 70, "White rhino", 4, 2);
-
+rhino.eat(5);
+rhino.move(20);
 //        ArrayList<Terrestrial> zoo = new ArrayList<Terrestrial>();
 //        zoo.add(zebra); // 'Zebra' object upcasting to 'Terrestrial' ref.
 //        zoo.add(tiger); // 'Tiger' object upcasting to 'Terrestrial' ref.
@@ -52,14 +53,6 @@ public class Main {
 //            zoo.get(i).camouflage();
 //        }
 //        Terrestrial tigruRo = new Terrestrial();
-        Tiger tigru = new Tiger();
-        tigru.saySomething();
-
-        Terrestrial tigruRo = tigru;
-        tigruRo.saySomething();
-
-        Tiger acelasTigru = (Tiger) tigruRo;
-        acelasTigru.saySomethingTiger();
 
 
 //        Zebra theZebra = (Zebra)zoo.get(0);

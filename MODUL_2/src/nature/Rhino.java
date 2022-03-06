@@ -16,5 +16,28 @@ public class Rhino extends Terrestrial {
   public void camouflage(){
     System.out.println("I'm using my thick skin, strong horn and impressive large size to defend.");
   }
+  @Override
+  public void eat(int unitsOfFood) {
+    System.out.println("Eating grass like a rhino, " + unitsOfFood + " tons.");
+  }
+
+  @Override
+  public void move(int distance) {
+    System.out.println("Slowly moving forward like a rhino, " +
+            distance + " meters in " + distance / 2 + " days.");
+  }
+  @Override
+  public void specialCharacteristic() {
+    System.out.println("I have a strong horn!");
+  }
+
+  public static void subspeciesDescription() {
+    System.out.println("[static method] Rhino subspecies");
+  }
+
+    @Override
+    public String toString() {
+      return "This is a Rhino! " + super.toString();
+    }
   
 }

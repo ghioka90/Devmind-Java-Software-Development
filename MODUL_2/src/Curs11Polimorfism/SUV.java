@@ -1,6 +1,6 @@
 package Curs11Polimorfism;
 
-public class SUV extends CarStatic{
+public class SUV extends Car {
 
     public SUV(){}
 
@@ -8,12 +8,9 @@ public class SUV extends CarStatic{
     public void carDetailes(){
         System.out.println("I am a SUV car!");
     }
+
     public static void main(String[] args) {
-        System.out.println("   /\\_/\\   ");
-        System.out.println("  / o o \\  ");
-        System.out.println(" (   \"   ) ");
-        System.out.println("  \\~(*)~/  ");
-        System.out.println("   // \\\\   ");
+      
 
     }
 }

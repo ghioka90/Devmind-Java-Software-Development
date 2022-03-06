@@ -1,6 +1,6 @@
 package nature;
 
-public class Aquatic extends Animal{
+public abstract class Aquatic extends Animal{
     int eyes;
     int swimmers;
 
@@ -24,16 +24,13 @@ public class Aquatic extends Animal{
         super.description();
     }
 
-    @Override
-    public void move(int distance){
-        System.out.println("This is a aquatic species.");
-        super.move(distance);
-    }
+//    @Override
+//    public void move(int distance){
+//        System.out.println("This is a aquatic species.");
+//        super.move(distance);
+//    }
 
-    public void saySomething() {
-        System.out.println("Unknown sound for non-specific aquatic animal...");
-    }
+    public abstract void saySomething();
 
-    public void camouflage(){
-        System.out.println("Unknown sound for non-specific aquatic animal...");
-    }}
+    public abstract void camouflage();
+}

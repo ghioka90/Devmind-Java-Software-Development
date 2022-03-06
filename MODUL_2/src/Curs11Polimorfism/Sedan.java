@@ -1,6 +1,6 @@
 package Curs11Polimorfism;
 
-public class Sedan extends CarStatic{
+public class Sedan extends Car {
     public Sedan (){}
 
     @Override

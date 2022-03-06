@@ -1,6 +1,6 @@
 package nature;
 
-public class Animal {
+public abstract class Animal {
     // The class has 4 fields:
     private boolean carnivore;
     private int weight;
@@ -20,13 +20,17 @@ public class Animal {
     }
 
     //The class has 3 methods:
-    public void eat(int unitsOfFood) {
-        System.out.println("The animal eats " + unitsOfFood + " units of food.");
-    }
+//    public void eat(int unitsOfFood) {
+//        System.out.println("The animal eats " + unitsOfFood + " units of food.");
+//    }
+    abstract void eat(int foodQuantity);
 
-    public void move(int distance) {
-        System.out.println("The animal moves " + distance + " meters.");
-    }
+
+//    public void move(int distance) {
+//        System.out.println("The animal moves " + distance + " meters.");
+//    }
+    public abstract void move(int distance);
+
 
     public void description() {
         System.out.println("The animal is a " + this.species + "; has a size of "
@@ -36,6 +40,13 @@ public class Animal {
 
     public final void printSpecies() {
         System.out.println("The scientific species is: " + this.species);
+    }
+
+    @Override
+    public String toString() {
+        return "The animal is a " + this.species + "; has a size of "
+                + this.size + "; weights " + this.weight + " and is "
+                + (this.carnivore ? "" : "not ") + "carnivore.";
     }
 
 
