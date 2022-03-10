@@ -1,11 +1,13 @@
 package P1_SistemGestiuneInscrieri;
 
-import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class GuestList {
     int avPlaces;
+    Scanner sc = new Scanner(System.in);
     ArrayList<Guest> participantList = new ArrayList<>();
     ArrayList<Guest> waitingList =  new ArrayList<>();
 
@@ -52,6 +54,7 @@ public class GuestList {
 //            }
 //        }
     }
+
     // 2 metoda care determina daca o pesroana este sau nu inscrisa la eveniment, pe orcare din liste, reutilizand metoda search
     public boolean isRegistred(String firstName, String lastName, String email, int phoneNo){
         return search(participantList, firstName, lastName) ||
@@ -61,6 +64,8 @@ public class GuestList {
                 search(waitingList, email) ||
                 search(waitingList, phoneNo);
     }
+
+
     //a. metoda de cautare dupa nume si prenume
     public boolean search (ArrayList<Guest> guest, String firstName, String lastName){
         boolean result = false;
@@ -70,6 +75,17 @@ public class GuestList {
         }
         return result;
     }
+    public int indexOf (ArrayList<Guest> guest, String firstName, String lastName){
+        int result = -1;
+        for (int i = 0; i < guest.size(); i++) {
+            if(guest.get(i).firstName.equalsIgnoreCase(firstName) &&
+                    guest.get(i).lastName.equalsIgnoreCase(lastName)){
+                result = i;
+            }
+        }
+        return result;
+    }
+
     //b. metoda de cautare dupa email
     public boolean search (ArrayList<Guest> guest, String email){
         boolean result = false;
@@ -78,6 +94,17 @@ public class GuestList {
         }
         return result;
     }
+    public int indexOf (ArrayList<Guest> guest, String email){
+        int result = -1;
+        for (int i = 0; i < guest.size(); i++) {
+            if(guest.get(i).firstName.equalsIgnoreCase(email)){
+                result = i;
+            }
+        }
+        return result;
+    }
+
+
     //c. metoda de cautare dupa numarul de telefon
     public boolean search (ArrayList<Guest> guest, int phoneNo){
         boolean result = false;
@@ -87,12 +114,40 @@ public class GuestList {
         return result;
     }
 
-// public boolean remove (){}
+//
+//    public boolean remove (){
+//        System.out.println("Tastati un criteriu ");
+//    }
 
-    public void displayParticipants(){
-        for (int i = 0; i < participantList.size(); i++){
+    //5. 6. metoda de afisare a tuturor participantilor dintr-o lista
+    public void displayParticipants(ArrayList<Guest> guest){
+        for (int i = 0; i < guest.size(); i++){
             System.out.println((i+1) + ". ");
+            System.out.println();
         }
+    }
+
+    //7. numarul de locuri disponibile
+    public int availablePlaces (){
+        if (participantList.size() == avPlaces){
+            return 0;
+        }else
+            return avPlaces - participantList.size();
+    }
+
+    //8. metoda de afisare a numarului de participanti
+    public int noParticipants(){
+        return participantList.size();
+    }
+
+    //9. metoda de afisare a numarului de persoane aflate pe lista asteptare
+    public int noPrsWaiting(){
+        return waitingList.size();
+    }
+
+    //10. obtinerea numarului total de persoane
+    public void totalParciticants(){
+        System.out.println("Numarul total de participanti este: " + (participantList.size()+ waitingList.size()));
     }
 
 
