@@ -97,7 +97,7 @@ public class GuestList {
     public int indexOf (ArrayList<Guest> guest, String email){
         int result = -1;
         for (int i = 0; i < guest.size(); i++) {
-            if(guest.get(i).firstName.equalsIgnoreCase(email)){
+            if(guest.get(i).email.equalsIgnoreCase(email)){
                 result = i;
             }
         }
