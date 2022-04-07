@@ -1,26 +1,24 @@
 package Curs21;
 
-import java.util.LinkedList;
-
 public class UsingLinkedLists {
 
   // helper method to create a list from an array of values
-  private static Node<Double> makeList(double[] values) {
-    Node<Double> head = new Node<>();
-    Node<Double> it = head;
+  private static ListNode<Double> makeList(double[] values) {
+    ListNode<Double> head = new ListNode<>();
+    ListNode<Double> it = head;
 
 
     for (double el : values) {
-      Node<Double> newNode = new Node<>(el);
-      it.next(newNode);
+      ListNode<Double> newListNode = new ListNode<>(el);
+      it.next(newListNode);
       it = it.next();
     }
     return head.next();
   }
 
   // iterate over all elements of a linked list
-  public static void iterate(Node<Double> listHead) {
-    Node<Double> it = listHead; // The iterator points to the first element in the list
+  public static void iterate(ListNode<Double> listHead) {
+    ListNode<Double> it = listHead; // The iterator points to the first element in the list
     while (it != null) { // while we have not reached the end of the list
       double crtElement = it.value();// accessing the element in the Node indicated by the iterator
       System.out.println(crtElement); // for demo purpose: printing the element
@@ -30,10 +28,10 @@ public class UsingLinkedLists {
 
   static final double EPS = 0.0000001; // maximum accepted error for comparison
   // search for a certain key in a linked list
-  public static boolean find(Node<Double> listHead, double searchKey) {
+  public static boolean find(ListNode<Double> listHead, double searchKey) {
 
     // using a for loop for iteration
-    for (Node<Double> it = listHead; it != null; it = it.next()) {
+    for (ListNode<Double> it = listHead; it != null; it = it.next()) {
       if (Math.abs((it.value() - searchKey)) < EPS) { // comparing 2 double values
         return true;
       }
@@ -42,41 +40,41 @@ public class UsingLinkedLists {
   }
 
   // insert the 'newValue' in the list at the 'pos' position
-  public static Node<Double> insert(Node<Double> listHead, double newValue, int pos) {
+  public static ListNode<Double> insert(ListNode<Double> listHead, double newValue, int pos) {
     // Special case - inserting in place of the head of the list
     if (pos == 0) {
       // create a new node containing the new inserted element
-      Node<Double> newNode = new Node<>(newValue);
+      ListNode<Double> newListNode = new ListNode<>(newValue);
 
       // newNode's next element is the old head of the list
-      newNode.next(listHead);
+      newListNode.next(listHead);
 
       // head of the resulting list is the newly created node
-      return newNode;
+      return newListNode;
     }
 
     // Insertion steps:
     // (0) - move the iterator 'it' on the node *before* the insertion
-    Node<Double> it = listHead;
+    ListNode<Double> it = listHead;
     for (int i=0; i<pos-1; i++) {
       it = it.next();
     }
 
     // (1) - create a node containing the new inserted element
-    Node<Double> newNode = new Node<>(newValue);
+    ListNode<Double> newListNode = new ListNode<>(newValue);
 
     // (2) - newNode indicates the 'after' node
-    newNode.next(it.next());
+    newListNode.next(it.next());
 
     // (3) - previous node indicates the new created node
-    it.next(newNode);
+    it.next(newListNode);
 
     return listHead;
   }
 
   // remove the element at the 'pos' position from the list and
   // return the new list head
-  public static Node<Double> remove(Node<Double> listHead, int pos) {
+  public static ListNode<Double> remove(ListNode<Double> listHead, int pos) {
     // Special case - removing the head of the list
     if (pos == 0) {
       // return the successor of the old head node
@@ -85,7 +83,7 @@ public class UsingLinkedLists {
 
     // Removal steps:
     // (0) - move the iterator 'it' on the node *before* the one removed
-    Node<Double> it = listHead;
+    ListNode<Double> it = listHead;
     for (int i=0; i<pos-1; i++) {
       it = it.next();
     }
@@ -98,28 +96,42 @@ public class UsingLinkedLists {
     return listHead;
   }
 
-  public static Node<Double> removeDuplicates(Node<Double> listHead) {
+  public static ListNode removeDuplicates(ListNode<Double> listHead) {
     double prevElement = listHead.value();
-
-    // Removal steps:
-    // (0) - move the iterator 'it' on the node *before* the one removed
-    Node<Double> it = listHead;
+    ListNode<Double> it = listHead;
     while (it != null) {
-      if (prevElement == it.value()) {
-        prevElement = it.value();
-        it.next(it.next().next());
+      if (it.next == null){
+        break;
+      }
+
+      if (it.val == it.next.val) {
+        it.next = it;
+      } else {
+        it = it.next;
       }
     }
-
-    // return the current list head
     return listHead;
+    }
+//
+//    // return the current list head
+//    return listHead;
+//  }
+
+  public static int useList2(ListNode<Double> list) {
+    int count = 0;
+    while (list.next() != null && list.next().next()!= null) {
+      list = list.next();
+      count++;
+    }
+
+    return count;
   }
 
   
   public static void main(String[] args) {
     double[] values = {24.15, 24.15, 3.33, 1.01, 19.30, 16.11};
-    Node<Double> list = makeList(values);
-    iterate(list);
+    ListNode<Double> list = makeList(values);
+
 
 
 
@@ -131,8 +143,9 @@ public class UsingLinkedLists {
 //
 //    remove(list, 4);
 //    iterate(list);
+//    removeDuplicates(list);
+//    iterate(list);
     removeDuplicates(list);
-    iterate(list);
 
   }
 }
