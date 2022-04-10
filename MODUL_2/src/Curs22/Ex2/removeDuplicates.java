@@ -65,11 +65,11 @@ public class removeDuplicates {
                 if(previousElement.compareTo(nextElement) == 0) {
                     it.remove();
                     hasBeenRemoved = true;
-                    }
-                if (hasBeenRemoved){
-                    it.previous();
-                    it.remove();
-                }
+                    }else
+                        if (hasBeenRemoved == true){
+                            it.previous();
+                            it.remove();
+                        }
 
                 previousElement = nextElement;
             }
