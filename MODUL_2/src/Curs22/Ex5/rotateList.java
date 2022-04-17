@@ -12,15 +12,16 @@ public class rotateList {
         if (key == list.size()){
             return list;
         }else {
-            while (position < list.size()) {
-                System.out.println(position);
+            for (int it = position; it <= list.size() - 1; it++) {
+//                System.out.println(position);
                 rotatedList.addLast(list.get(position));
 //           list.remove(position);
-                position++;
+//                position++;
             }
-            for (int it = 0; it <= (list.size() - (key-1)); it++) {
+            System.out.println(position);
+            for (int it = 0; it <= position - 1 ; it++) {
                 rotatedList.addLast(list.getFirst());
-                list.removeFirst();
+//                list.removeFirst();
             }
             return rotatedList;
         }
@@ -34,6 +35,6 @@ public class rotateList {
         list1.add(5);
 
         //cand key este 4 sau 5  afiseaza un element de 2 ori
-        System.out.println(rotateListRight(list1, 2));
+        System.out.println(rotateListRight(list1, 4));
     }
 }

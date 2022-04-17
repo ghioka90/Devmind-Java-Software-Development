@@ -59,16 +59,20 @@ public class removeDuplicates {
 
         if(it.hasNext()) {
             Integer previousElement = it.next();
+            hasBeenRemoved = false;
             while(it.hasNext()) {
-                hasBeenRemoved = false;
+
                 Integer nextElement = it.next();
                 if(previousElement.compareTo(nextElement) == 0) {
                     it.remove();
+                    it.next();
                     hasBeenRemoved = true;
                     }else
                         if (hasBeenRemoved == true){
                             it.previous();
+                            it.next();
                             it.remove();
+                            hasBeenRemoved = false;
                         }
 
                 previousElement = nextElement;
@@ -94,9 +98,9 @@ public class removeDuplicates {
         newList.add(2);
         newList.add(3);
         newList.add(3);
-//        newList.add(3);
-//        newList.add(3);
-//        newList.add(3);
+        newList.add(3);
+        newList.add(3);
+        newList.add(3);
         newList.add(4);
         newList.add(5);
         newList.add(6);
