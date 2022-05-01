@@ -2,7 +2,7 @@ package Curs18;
 
 import java.util.Arrays;
 
-public class LC_FirstAndLastPosition {
+public class LC_FirstAndLastPositionBONUS {
     public static int[] searchRange(int[] nums, int target) {
         int[] result = new int[]{-1, -1};
 

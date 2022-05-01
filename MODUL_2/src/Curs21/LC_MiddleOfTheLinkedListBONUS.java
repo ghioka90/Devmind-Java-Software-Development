@@ -1,6 +1,6 @@
 package Curs21;
 
-public class LC_MiddleOfTheLinkedList {
+public class LC_MiddleOfTheLinkedListBONUS {
 
     public ListNode middleNode(ListNode head) {
         ListNode slow = head, fast = head;

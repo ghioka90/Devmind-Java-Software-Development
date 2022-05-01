@@ -37,7 +37,7 @@ public abstract class AbstractGiveSurprises {
 
     public void giveAll() {
         if (this.container.isEmpty()) {
-            System.out.println("The bag is ");
+            System.out.println("The bag is empty");
         }
     }
 

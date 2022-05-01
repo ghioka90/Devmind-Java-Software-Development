@@ -13,6 +13,7 @@ public class array {
         System.out.println();
     }
 
+
     static void diffArray(int A[], int B[]) {
         boolean equals;
         int count = 0;
@@ -57,7 +58,7 @@ public class array {
 //            }
         }
 
-    static void UnionArray(int A[], int B[]) {
+    static void UnionArray(int[] A, int[] B) {
         // Taking max element present in either array
         int m = A[A.length-1];
         int n = B[B.length-1];

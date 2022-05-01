@@ -1,4 +1,7 @@
-package Curs21;
+package Curs21.UsingLinkedLists;
+
+import Curs21.ListNode;
+import Curs21.Node;
 
 public class UsingLinkedLists {
   

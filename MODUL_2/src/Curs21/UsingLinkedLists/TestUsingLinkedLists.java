@@ -1,4 +1,8 @@
-package Curs21;
+package Curs21.UsingLinkedLists;
+
+import Curs21.Node;
+
+import static Curs21.UsingLinkedLists.UsingLinkedLists.*;
 
 public class TestUsingLinkedLists {
 

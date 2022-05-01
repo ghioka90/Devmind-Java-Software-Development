@@ -1,4 +1,6 @@
-package Curs21;
+package Curs21.SinglyLinkedLists;
+
+import Curs21.SinglyLinkedLists.SinglyLinkedList;
 
 public class TestSinglyLinkedList {
   public static void main(String[] args) {

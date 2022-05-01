@@ -106,9 +106,9 @@ public class removeDuplicates {
         newList.add(6);
 
         System.out.println(newList);
-//        newList.removeDuplicates21();
+       newList.removeDuplicates21();
 //        System.out.println(newList);
-        newList.removeDuplicates22();
+//        newList.removeDuplicates22();
         System.out.println(newList);
 
 

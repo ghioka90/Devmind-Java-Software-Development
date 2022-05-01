@@ -1,4 +1,4 @@
-package Curs21;
+package Curs21.SinglyLinkedLists;
 
 public class SinglyLinkedList<T> {
   

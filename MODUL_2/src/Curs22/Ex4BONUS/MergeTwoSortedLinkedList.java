@@ -1,4 +1,4 @@
-package Curs22.Ex4;
+package Curs22.Ex4BONUS;
 
 import java.util.LinkedList;
 
@@ -16,19 +16,19 @@ public class MergeTwoSortedLinkedList {
 
         while(!list1.isEmpty()){
             if (list1.getFirst() >= list2.getFirst()){
-                mergedList.addFirst(list2.getFirst());
-                mergedList.addFirst(list1.getFirst());
+                mergedList.addLast(list2.getFirst());
+                mergedList.addLast(list1.getFirst());
                 list1.removeFirst();
                 list2.removeFirst();
             }else{
-                mergedList.addFirst(list1.getFirst());
-                mergedList.addFirst(list2.getFirst());
+                mergedList.addLast(list1.getFirst());
+                mergedList.addLast(list2.getFirst());
                 list1.removeFirst();
                 list2.removeFirst();
             }
         }
         while(!list2.isEmpty()){
-            mergedList.addFirst(list2.getFirst());
+            mergedList.addLast(list2.getFirst());
             list2.removeFirst();
         }
 

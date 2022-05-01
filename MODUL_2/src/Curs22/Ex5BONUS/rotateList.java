@@ -1,9 +1,6 @@
-package Curs22.Ex5;
-
-import Curs11Polimorfism.main;
+package Curs22.Ex5BONUS;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class rotateList {
     public static LinkedList<Integer> rotateListRight(LinkedList<Integer> list, int key){

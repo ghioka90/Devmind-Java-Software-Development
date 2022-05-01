@@ -36,7 +36,7 @@ public class Evaluator {
                     temp.append(op.pop());
                 }
                 if(op.isEmpty()) {
-                    System.out.println("error paranteze ordine gresita");
+                    System.out.println("Parantezele sunt ordine gresita");
                 }
                 if(!op.isEmpty() && op.peek() == '(') {
                     op.pop();
@@ -45,7 +45,7 @@ public class Evaluator {
         }
         while(!op.isEmpty()){
             if(op.peek() == '(') {
-                System.out.println("error paranteze ordine gresita");
+                System.out.println("Parantezele ordine gresita");
             }
             temp.append(op.pop());
         }
@@ -114,7 +114,7 @@ public class Evaluator {
                 this.result.push(Character.getNumericValue(x));
             } else if(this.isOperator(x)){
                 if(result.size() < 2){
-                    System.out.println("Expresie postfixata gresita. nu sunt destui operanzi");
+                    System.out.println("Expresie postfixata gresita. Nu sunt destui operanzi");
                 }
                 int op1 = result.pop();
                 int op2 = result.pop();
