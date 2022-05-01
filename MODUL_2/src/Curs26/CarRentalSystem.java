@@ -1,9 +1,7 @@
 package Curs26;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
- 
+import java.util.*;
+
 public class CarRentalSystem{
  
   private static Scanner sc = new Scanner(System.in);
@@ -13,14 +11,22 @@ public class CarRentalSystem{
   private int noRentedCars = 0;
 
 
-  private static String getPlateNo() {
+  private static String getPlateNo() throws InputMismatchException {//exceptia 3
     System.out.println("Introduceti numarul de inmatriculare:");
-    return sc.nextLine();
+    String plateNO = sc.nextLine();
+    if (plateNO.matches("\\s+")){
+      throw new InputMismatchException("Numarul de inmatriculare nu poate contine spatii!");
+    }
+    return plateNO;
   }
  
-  private static String getOwnerName() {
+  private static String getOwnerName() throws InputMismatchException {//exceptia 2
     System.out.println("Introduceti numele proprietarului:");
-    return sc.nextLine();
+    String name = sc.nextLine();
+    if (name.matches("[0-9]+")){
+      throw new InputMismatchException("Un nume nu poate contine cifre!");
+    }
+    return name;
   }
  
   // search for a key in hashtable
@@ -42,18 +48,19 @@ public class CarRentalSystem{
 //  }
  
   // get the value associated to a key
-  private String getCarRent(String plateNo) { //1.3.Sistemul afiseaza un mesaj de eroare prietenos (i.e. human readable)
+  private String getCarRent(String plateNo) throws NoSuchElementException { //1.3.Sistemul afiseaza un mesaj de eroare prietenos (i.e. human readable)
                                               // atunci cand se doreste aflarea soferului pentru un autovehicul inexistent.
-    if (!isCarRent(plateNo)){
-      System.out.println("Masina nu exista!");
+    if (!isCarRent(plateNo)){  //exceptia 1
+      throw new NoSuchElementException("Masina nu exista!");
     }
     return "Proprietarul este: " + allRentedCars.get(plateNo);
   }
  
   // add a new (key, value) pair and check if the car is rented
   private void rentCar(String plateNo, String ownerName) {
-    if (isCarRent(plateNo)){
-      System.out.println("Masina este daja inchiriata.");//1.1. Sistemul afiseaza un mesaj de eroare la
+    if (isCarRent(plateNo)){  //exceptia 2
+      throw new NoSuchElementException("Masina este daja inchiriata.");
+//      System.out.println("Masina este daja inchiriata.");//1.1. Sistemul afiseaza un mesaj de eroare la
                                                                         // adaugarea unui autoturism deja existent.
                                                                         // In urma operatiei colectia ramane nemodificata.
     }else{
