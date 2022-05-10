@@ -7,7 +7,7 @@ import java.util.ListIterator;
 public class BigNumbers {
 
     public static LinkedList<Integer> sum(LinkedList<Integer> op1, LinkedList<Integer> op2) {
-        // TODO: Your code goes here...
+
         LinkedList<Integer> sumList = new LinkedList<>();
          if (op1.size() > op2.size()){
              LinkedList<Integer> aux = op1;
@@ -46,14 +46,14 @@ public class BigNumbers {
         op1.add(5);
         op1.add(3);
         op1.add(2);
-        op1.add(2);
+        op1.add(4);
 
 
         System.out.println("Operand 1 : " + op1);
         op2.add(7);
         op2.add(3);
         op2.add(2);
-        op2.add(2);
+        op2.add(8);
 
         System.out.println("Operand 2 : " + op2);
 

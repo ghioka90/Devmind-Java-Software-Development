@@ -1,13 +1,14 @@
-package Curs26;
+package Curs31.Ex2;
 
+import java.io.*;
 import java.util.*;
 
-public class CarRentalSystem{
+public class CarRentalSystemIO {
  
   private static Scanner sc = new Scanner(System.in);
 
   private HashMap<String, String> allRentedCars = new HashMap<>(100, 0.5f);
-  private HashMap<String, RentedCars> list = new HashMap<>(50,0.5f); //2.
+  private HashMap<String, RentedCarsIO> list = new HashMap<>(50,0.5f); //2.
   private int noRentedCars = 0;
 
 
@@ -65,14 +66,14 @@ public class CarRentalSystem{
                                                                         // In urma operatiei colectia ramane nemodificata.
     }else{
       if (!ownerRegistered(ownerName)) {// daca soferul nu este inregistrat il adaugam
-        RentedCars listOfCars = new RentedCars();
+        RentedCarsIO listOfCars = new RentedCarsIO();
         listOfCars.add(plateNo);// adaugam masina in lista
         list.put(ownerName, listOfCars);// actualizam numarul de masini pentru un sofer
         System.out.println("Masina cu numarul de inamtriculare " + plateNo + " a fost inchiriata lui " + ownerName);
       }else {
-        RentedCars car = list.get(ownerName);
+        RentedCarsIO car = list.get(ownerName);
         car.add(plateNo);
-      }
+     }
 //      this.noRentedCars++; //actualizam numarul total al  massinilor inchiriate
       allRentedCars.put(plateNo, ownerName);
     }
@@ -87,7 +88,7 @@ public class CarRentalSystem{
       System.out.println("Masina cu numarul de inmatriculare: " + plateNo + " a fost returnata.");
 //      this.noRentedCars--; //actualizam numarul total al massinilor inchiriate
 //      ownerRentedCar.remove(plateNo);
-      RentedCars car = list.get(ownerName);
+      RentedCarsIO car = list.get(ownerName);
       car.remove(plateNo); //eliminam masina din lista soferului
     }else {
       System.out.println("Masina cu numarul de inmatriculare: " + plateNo + " nu a fost inchiriata.");
@@ -103,7 +104,7 @@ public class CarRentalSystem{
 
   private void getCarsList(String ownerName){//2.1. getCarsList <OWNER_NAME> : va returna lista de masini inchiriate de proprietarul temporar OWNER_NAME
     if (ownerRegistered(ownerName)) {
-      RentedCars list = this.list.get(ownerName);
+      RentedCarsIO list = this.list.get(ownerName);
       list.printCarList();
     }else{
       System.out.println(ownerName + " nu a inchiriat nici o masina.");
@@ -158,6 +159,18 @@ public class CarRentalSystem{
           break;
         case "quit":
           System.out.println("Aplicatia se inchide...");
+          try (ObjectOutputStream writeDataRentedCars = new ObjectOutputStream(new BufferedOutputStream(
+                  new FileOutputStream("InputRentedCars.dat")));
+               ObjectOutputStream writeDataOwnerCars = new ObjectOutputStream(new BufferedOutputStream(
+                       new FileOutputStream("InputList.dat")))) {
+            writeDataRentedCars.writeObject(this.allRentedCars);
+            writeDataOwnerCars.writeObject(this.list);
+          } catch (IOException e) {
+            System.out.println("Something wrong with the file");
+            e.printStackTrace();
+          }
+
+
           quit = true;
           break;
         default:
@@ -166,11 +179,28 @@ public class CarRentalSystem{
       }
     }
   }
-  
-  public static void main(String[] args) {
+  public void readDataRentedCars() throws IOException {
+    try (ObjectInputStream dataInRentedCars = new ObjectInputStream(new BufferedInputStream(
+            new FileInputStream("InputRentedCars.dat")))) {
+      this.allRentedCars = (HashMap<String, String>) dataInRentedCars.readObject();
+    } catch (ClassNotFoundException e) {
+      System.out.println("A class not found exception: " + e.getMessage());
+    }
+  }
+
+  public void readDataOwnerCars() throws IOException {
+    try (ObjectInputStream dataInOwnerCars = new ObjectInputStream(new BufferedInputStream(
+            new FileInputStream("InputList.dat")))) {
+      this.list = (HashMap<String, RentedCarsIO>) dataInOwnerCars.readObject();
+    } catch (ClassNotFoundException e) {
+      System.out.println("A class not found exception: " + e.getMessage());
+    }
+  }
+
+    public static void main(String[] args) {
  
-    
-    new CarRentalSystem().run();
+    // create and run an instance (for test purpose)
+    new CarRentalSystemIO().run();
     
   }
 }

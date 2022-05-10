@@ -13,9 +13,7 @@ class QueueUsingCircularArray {
     }
 
     public void offer(int number) {
-        //Inserts the specified element into this queue if
-        //it is possible to do so immediately without violating
-        //capacity restrictions.
+
 
         if((first == 0 && last == size - 1) ||
                 (last == (first - 1) % (size - 1))) {
@@ -44,8 +42,7 @@ class QueueUsingCircularArray {
     }
 
     public Integer poll() {
-        //Retrieves and removes the head of this queue,
-        // or returns null if this queue is empty.
+
         int temp;
         if(empty()) {
             return null;

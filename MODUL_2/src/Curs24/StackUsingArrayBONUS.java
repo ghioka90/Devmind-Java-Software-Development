@@ -15,7 +15,6 @@ public class StackUsingArrayBONUS {
     }
 
     public void push(Integer number){
-        //Pushes an item onto the top of this stack.
         if(this.size == this.capacity - 1){
             System.out.println("Stack is full.");
         }else {
@@ -25,7 +24,6 @@ public class StackUsingArrayBONUS {
 
     }
     public Integer top(){
-        //Looks at the object at the top of this stack without removing it from the stack.
         if (empty()) {
             System.out.println("Stack is empty.");
             return null;
@@ -34,8 +32,6 @@ public class StackUsingArrayBONUS {
     }
 
     public Integer pop(){
-        //Removes the object at the top of this stack
-        // and returns that object as the value of this function.
         int temp;
         if (empty()) {
             System.out.println("Stack is empty.");
@@ -49,7 +45,6 @@ public class StackUsingArrayBONUS {
     }
 
     public boolean empty(){
-        //Tests if this stack is empty.
         if (this.size == 0){
             return true;
         }else

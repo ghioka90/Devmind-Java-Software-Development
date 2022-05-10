@@ -1,0 +1,5 @@
+Cel mai scurt cuvant este: ana
+Cel mai lung cuvant este: alexandru
+Primul cuvant in ordine alfabetica este: alex
+Ultimul cuvant in ordine alfabetica este : mihai
+Numarul total de cuvinte este : 6
