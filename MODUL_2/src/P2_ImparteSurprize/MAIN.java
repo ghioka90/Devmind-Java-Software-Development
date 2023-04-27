@@ -10,7 +10,7 @@ public class MAIN {
         surprise2.enjoy();
         surprise3.enjoy();
 
-        GiveSurpriseAndApplause giveA = new GiveSurpriseAndApplause("RANDOM", 0);
+        GiveSurpriseAndApplause giveA = new GiveSurpriseAndApplause("RANDOM", 3);
 
         giveA.put(surprise1);
         giveA.put(surprise2);
@@ -22,7 +22,7 @@ public class MAIN {
 
         System.out.println("\n\n");
 
-        GiveSurpriseAndHug giveH = new GiveSurpriseAndHug("FIFO", 0);
+        GiveSurpriseAndHug giveH = new GiveSurpriseAndHug("FIFO", 3);
 
         ISurprise surprise4 = GatherSurprises.gather();
         ISurprise surprise5 = GatherSurprises.gather();
@@ -43,7 +43,7 @@ public class MAIN {
 
         System.out.println("\n\n");
 
-        GiveSurpriseAndSing giveS = new GiveSurpriseAndSing("LIFO", 0);
+        GiveSurpriseAndSing giveS = new GiveSurpriseAndSing("LIFO", 3);
 
         ISurprise surprise7 = GatherSurprises.gather();
         ISurprise surprise8 = GatherSurprises.gather();

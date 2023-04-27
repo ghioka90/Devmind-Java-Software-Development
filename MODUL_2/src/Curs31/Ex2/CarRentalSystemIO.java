@@ -3,13 +3,15 @@ package Curs31.Ex2;
 import java.io.*;
 import java.util.*;
 
-public class CarRentalSystemIO {
+public class CarRentalSystemIO implements Serializable {
  
   private static Scanner sc = new Scanner(System.in);
 
   private HashMap<String, String> allRentedCars = new HashMap<>(100, 0.5f);
   private HashMap<String, RentedCarsIO> list = new HashMap<>(50,0.5f); //2.
   private int noRentedCars = 0;
+
+  private static final long serialVersionUID = 2L;
 
 
   private static String getPlateNo() throws InputMismatchException {//exceptia 3
@@ -127,9 +129,20 @@ public class CarRentalSystemIO {
     System.out.println("quit              - Inchide aplicatia");
   }
 
-  public void run() {
+  public void run()  {
     boolean quit = false;
+    if (CarRentalSystemIO.serialVersionUID > 1) {
+      try {
+        readDataRentedCars();
+        readDataOwnerCars();
+      } catch (IOException e) {
+        System.out.println("Something wrong with the file");
+        e.printStackTrace();
+      }
+    }
     while(!quit) {
+
+
       System.out.println("Asteapta comanda: (help - Afiseaza lista de comenzi)");
       String command = sc.nextLine();
       switch(command) {

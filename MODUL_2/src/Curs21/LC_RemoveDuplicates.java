@@ -1,7 +1,7 @@
 package Curs21;
 
 public class LC_RemoveDuplicates {
-    public ListNode deleteDuplicates(ListNode head) {
+    public  static final ListNode deleteDuplicates(ListNode head) {
         // sentinel
         ListNode sentinel = new ListNode(0, head);
 

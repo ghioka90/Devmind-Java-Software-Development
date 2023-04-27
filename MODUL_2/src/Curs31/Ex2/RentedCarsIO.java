@@ -2,9 +2,10 @@ package Curs31.Ex2;
 
 import Curs31.Ex2.CarRentalSystemIO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RentedCarsIO extends CarRentalSystemIO {
+public class RentedCarsIO implements Serializable {
 
     private ArrayList<String> listCars;
 
